@@ -1,0 +1,15 @@
+{
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "jest.enable": false,
+  "eslint.enable": true,
+  "eslint.validate": ["typescript"],
+  "eslint.options": {
+    "extensions": [".ts"]
+  },
+  "eslint.workingDirectories": ["./src", "./tests"]
+}
