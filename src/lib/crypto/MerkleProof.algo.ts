@@ -34,7 +34,7 @@ function _hashPairKeccak256(a: bytes32, b: bytes32): bytes32 {
 
 /**
  * Verify a Merkle Proof
- * @param proofs - Merkle Proofs
+ * @param proof - Merkle Proofs
  * @param root - Root hash
  * @param leaf - Leaf to check
  * @param hashMethod - Hash method to use ('sha256' or 'keccak256')
