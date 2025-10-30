@@ -24,7 +24,8 @@ type MerkleTestAccount = {
 
 const getRandomMerkleTestAccount = (algorand: AlgorandClient): MerkleTestAccount => {
   const acc = algorand.account.random()
-  return { address: acc.toString(), hash: sha256Hash(Buffer.from(acc.toString())) }
+  const accStr = acc.toString()
+  return { address: accStr, hash: sha256Hash(Buffer.from(accStr)) }
 }
 
 describe('MerkleProof library', () => {
