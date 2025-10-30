@@ -50,7 +50,7 @@ export function verify(proof: bytes32[], root: bytes32, leaf: bytes32, hashMetho
   for (let i: uint64 = 0; i < proof.length; i++) {
     if (hashMethod === 'sha256') {
       computedHash = _hashPairSha256(computedHash, proof[i])
-    } else if (hashMethod === 'keccak256') {
+    } else {
       computedHash = _hashPairKeccak256(computedHash, proof[i])
     }
   }
