@@ -2,7 +2,7 @@ import { arc4 } from '@algorandfoundation/algorand-typescript'
 
 export type FulfillRandomnessFunction = (
   /* request id as reference */
-  requestId: arc4.UintN64,
+  requestId: arc4.Uint64,
   /* the caller/initiator of the request */
   requesterAddress: arc4.Address,
   /* vrf output */

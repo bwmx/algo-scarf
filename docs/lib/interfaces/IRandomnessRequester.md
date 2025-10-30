@@ -24,11 +24,7 @@ export class ExampleRequester extends Contract implements IRandomnessRequester {
    * This method must be implemented in ExampleRequester because it implements IRandomnessRequester
    * Ensures callers follow best compatible practices
    */
-  public fulfillRandomness(
-    requestId: arc4.UintN64,
-    requesterAddress: arc4.Address,
-    output: arc4.StaticBytes<64>,
-  ): void {
+  public fulfillRandomness(requestId: arc4.Uint64, requesterAddress: arc4.Address, output: arc4.StaticBytes<64>): void {
     // do something
   }
 }
