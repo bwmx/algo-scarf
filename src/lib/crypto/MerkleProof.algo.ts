@@ -2,7 +2,7 @@
  * Merkle Proof Utilities
  */
 
-import { assert, BigUint, bytes, op, uint64 } from '@algorandfoundation/algorand-typescript'
+import { assert, BigUint, bytes, op } from '@algorandfoundation/algorand-typescript'
 
 /**
  * Errors
