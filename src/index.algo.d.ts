@@ -14,3 +14,8 @@ export * from './lib/interfaces/IRandomnessRequester.algo'
  */
 export * as Math from './lib/Math.algo'
 export * as Random from './lib/Random.algo'
+
+/**
+ * Cryptography
+ */
+export * as MerkleProof from './lib/crypto/MerkleProof.algo'

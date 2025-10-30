@@ -34,6 +34,7 @@
     "better-npm-audit": "^3.11.0",
     "dotenv": "^16.4.7",
     "eslint": "^9.18.0",
+    "merkletreejs": "^0.6.0",
     "prettier": "^3.4.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.7.3",

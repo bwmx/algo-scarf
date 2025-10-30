@@ -29,3 +29,7 @@ Math related functions and utilities.
 ### [Random](lib/Random.md)
 
 Some utility functions for pseudorandom number generators.
+
+### [MerkleProof](lib/crypto/MerkleProof.md)
+
+Utilities to verify merkle proofs on-chain.
