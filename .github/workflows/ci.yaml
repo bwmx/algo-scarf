@@ -1,0 +1,57 @@
+name: Audit, Lint, Format and Test library
+
+on:
+  workflow_call:
+
+  pull_request:
+    branches:
+      - dev
+  push:
+    branches:
+      - dev
+
+jobs:
+  validate:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install algokit
+        run: pipx install algokit
+
+      - name: Start LocalNet
+        run: algokit localnet start
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure git
+        shell: bash
+        run: |
+          # set git user and email as test invoke git
+          git config --global user.email "actions@github.com" && git config --global user.name "github-actions"
+
+      - name: Audit dependencies
+        run: npm run audit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format
+        run: npm run format
+
+      - name: Run tests
+        run: npm run test
