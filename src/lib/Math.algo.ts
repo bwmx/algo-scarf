@@ -4,6 +4,7 @@ import { err, uint64 } from '@algorandfoundation/algorand-typescript'
  * Wrapper to provide tealscript like functionality
  * TODO: not implemented yet
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function wideRatio(a: uint64[], b: uint64[]): void {
   err('not implemented')
 }
