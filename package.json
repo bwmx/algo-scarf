@@ -1,6 +1,6 @@
 {
   "name": "algo-scarf",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Algorand TypeScript Smart Contract Library",
   "main": "src/index.algo.d.ts",
   "scripts": {
@@ -18,14 +18,14 @@
     "npm": ">=9.0"
   },
   "dependencies": {
-    "@algorandfoundation/algorand-typescript": "^1.0.0-alpha.99 <1.0.0"
+    "@algorandfoundation/algorand-typescript": "^1.0.1"
   },
   "devDependencies": {
     "@algorandfoundation/algokit-client-generator": "^6.0.0",
     "@algorandfoundation/algokit-utils": "^9.0.0",
     "@algorandfoundation/algokit-utils-debug": "^1.0.4",
-    "@algorandfoundation/algorand-typescript-testing": "~1.0.0-beta.30 <1.0.0",
-    "@algorandfoundation/puya-ts": "^1.0.0-alpha.99 <1.0.0",
+    "@algorandfoundation/algorand-typescript-testing": "^1.0.1",
+    "@algorandfoundation/puya-ts": "^1.0.1",
     "@eslint/js": "^9.18.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "@tsconfig/node22": "^22.0.0",
