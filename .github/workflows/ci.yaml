@@ -53,5 +53,8 @@ jobs:
       - name: Format
         run: npm run format
 
+      - name: Build test artifacts
+        run: npm run build
+
       - name: Run tests
         run: npm run test
