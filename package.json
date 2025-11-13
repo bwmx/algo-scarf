@@ -1,6 +1,6 @@
 {
   "name": "algo-scarf",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Algorand TypeScript Smart Contract Library",
   "main": "src/index.algo.d.ts",
   "scripts": {
