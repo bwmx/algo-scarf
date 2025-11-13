@@ -30,7 +30,7 @@ See [MerkleProof.e2e.spec.ts](../../../tests/crypto/MerkleProof.e2e.spec.ts) for
 
 ```typescript
 import { assert, bytes, Contract, GlobalState } from '@algorandfoundation/algorand-typescript'
-import { MerkleProof } from '../../src/index.algo'
+import * as AlgoScarf * from 'algo-scarf'
 
 /**
  * A Mock contract that uses the methods in the `MerkleProof` library
@@ -55,7 +55,7 @@ export class ExampleMerkleProofContract extends Contract {
   public testMerkleProofVerify(proof: bytes<32>[], leaf: bytes<32>): boolean {
     assert(this.merkleRoot.hasValue, 'Merkle root must be set')
 
-    return MerkleProof.verify(proof, this.merkleRoot.value, leaf, 'sha256')
+    return AlgoScarf.MerkleProof.verify(proof, this.merkleRoot.value, leaf, 'sha256')
   }
 }
 ```

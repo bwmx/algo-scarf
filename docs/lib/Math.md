@@ -26,7 +26,7 @@ function maxUint64(a: uint64, b: uint64): uint64
 
 ```typescript
 import { Contract, uint64 } from '@algorandfoundation/algorand-typescript'
-import { Math } from '../../src/index.algo'
+import { Math } from 'algo-scarf'
 
 /**
  * A Mock contract that uses the methods in the `Math` library

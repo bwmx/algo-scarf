@@ -73,9 +73,9 @@ export const ERROR_MUST_BE_PAUSED = 'Pausable: must be paused'
 ## Usage
 
 ```typescript
-import { Pausable } from '../../src/index.algo'
+import * as AlgoScarf from 'algo-scarf'
 
-export class MockPausable extends Pausable {
+export class MockPausable extends AlgoScarf.Pausable {
   constructor() {
     super()
   }

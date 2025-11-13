@@ -72,9 +72,9 @@ export const ERROR_MUST_DIFFER = 'Managable: must differ from current manager'
 ## Usage
 
 ```typescript
-import { Managable } from '../../src/index.algo'
+import * as AlgoScarf from 'algo-scarf'
 
-export class MockManagable extends Managable {
+export class MockManagable extends AlgoScarf.Managable {
   constructor() {
     super()
   }

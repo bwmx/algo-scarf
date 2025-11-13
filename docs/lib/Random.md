@@ -18,7 +18,7 @@ export function xorShiftUint64(seed: uint64): uint64
 
 ```typescript
 import { Contract, uint64 } from '@algorandfoundation/algorand-typescript'
-import { Random } from '../../src/index.algo'
+import { Random } from 'algo-scarf'
 
 /**
  * A Mock contract that uses the methods in the `Random` library

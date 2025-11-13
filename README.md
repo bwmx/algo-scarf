@@ -11,7 +11,7 @@ This project has been generated using AlgoKit. See below for default getting sta
 You can install the package directly from GitHub, expect frequent breaking changes during development. **This library should not be used in production**.
 
 ```bash
-npm install https://github.com/bwmx/algo-scarf#dev
+npm install --save-dev algo-scarf
 ```
 
 ## Documentation
