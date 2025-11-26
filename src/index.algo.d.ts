@@ -2,6 +2,7 @@
  * Abstract Contracts
  */
 export * from './lib/auth/Managable.algo'
+export * from './lib/auth/Managable2Step.algo'
 export * from './lib/utils/Pausable.algo'
 
 /**
