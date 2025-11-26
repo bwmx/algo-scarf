@@ -57,7 +57,7 @@ describe('Managable2Step contract', () => {
     // should match proposed new manager
     expect(pendingManager).toEqual(newManager.toString())
 
-    // should have 1 log, fron the ManagerRequested event
+    // should have 1 log, from the ManagerRequested event
     expect(r.confirmation.logs).toBeDefined()
     expect(r.confirmation.logs?.length).toBe(1)
 
