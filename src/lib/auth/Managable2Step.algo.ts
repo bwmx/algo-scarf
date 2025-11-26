@@ -23,7 +23,7 @@ export abstract class Managable2Step extends Managable {
 
   /**
    * Request an update to the manager of this contract
-   * @param newManager The new manager address in arc4 format
+   * @param newManager The new manager account address (in native Account format)
    */
   override updateManager(newManager: Account): void {
     // only current manager can initiate manager update
