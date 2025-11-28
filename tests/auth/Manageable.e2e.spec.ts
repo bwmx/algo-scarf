@@ -1,22 +1,10 @@
 import { Config } from '@algorandfoundation/algokit-utils'
 import { registerDebugEventHandlers } from '@algorandfoundation/algokit-utils-debug'
 import { algorandFixture } from '@algorandfoundation/algokit-utils/testing'
-import { ABIType, Address, ALGORAND_ZERO_ADDRESS_STRING } from 'algosdk'
+import { Address, ALGORAND_ZERO_ADDRESS_STRING } from 'algosdk'
 import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
 import { MockManagableClient, MockManagableFactory } from '../mocks/artifacts/MockManagableClient'
-
-const getManagerUpdatedEventFromLog = (rawLog: Uint8Array): { previousManager: string; newManager: string } => {
-  // first 4 bytes are signature
-  // TODO: check signature is correct and as expected also
-  const rawEventData = rawLog.subarray(4)
-  // decode raw event
-  let [previousManager, newManager] = ABIType.from('(address,address)').decode(rawEventData) as [string, string]
-
-  return {
-    previousManager,
-    newManager,
-  }
-}
+import { getEventFromLog } from '../test-utils'
 
 describe('Managable contract', () => {
   const localnet = algorandFixture()
@@ -67,8 +55,12 @@ describe('Managable contract', () => {
     // get first txns logs, first pos
     const rawLog = confirmation.logs![0]
 
-    const { previousManager, newManager } = getManagerUpdatedEventFromLog(rawLog)
-    console.log('prev =', previousManager, `\nnew = `, newManager)
+    const { previousManager, newManager } = getEventFromLog<{ previousManager: string; newManager: string }>(
+      'ManagerUpdated(address,address)',
+      rawLog,
+      ['previousManager', 'newManager'],
+    )
+
     // check that previous manager is testAccount (in event)
     expect(previousManager).toEqual(testAccount.toString())
     // check that new manager is anotherAccount (in event)
@@ -90,9 +82,11 @@ describe('Managable contract', () => {
     // get first txns logs, first pos
     const rawLog = confirmation.logs![0]
     // convert raw log to event data
-    const { previousManager, newManager } = getManagerUpdatedEventFromLog(rawLog)
-    console.log(previousManager, newManager)
-    // TODO: some checks on the event
+    const { previousManager, newManager } = getEventFromLog<{ previousManager: string; newManager: string }>(
+      'ManagerUpdated(address,address)',
+      rawLog,
+      ['previousManager', 'newManager'],
+    )
     // check that previous manager is testAccount (in event)
     expect(previousManager).toEqual(testAccount.toString())
     // check that new manager is anotherAccount (in event)

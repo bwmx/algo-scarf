@@ -33,7 +33,12 @@ export abstract class Managable extends Contract {
     this._updateManager(Global.creatorAddress)
   }
 
-  private _updateManager(newManager: Account): void {
+  /**
+   * Internal implementation of manager update
+   * @param newManager the new manager
+   * @remarks This method handles the actual update of the manager state and emits the relevant event
+   */
+  protected _updateManager(newManager: Account): void {
     // emit the ownership transfer event
     emit(
       new ManagerUpdated({
