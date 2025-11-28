@@ -107,6 +107,28 @@ describe('Managable2Step contract', () => {
     expect(event.newManager).toEqual(newManager.toString())
   })
 
+  it('should allow re-proposing a new manager before acceptance', async () => {
+    // Test re-proposing a new manager before acceptance
+    const { testAccount, generateAccount } = localnet.context
+    const { client } = await deploy(testAccount)
+
+    const firstProposedManager = await generateAccount({ initialFunds: (1).algos() })
+    const secondProposedManager = await generateAccount({ initialFunds: (1).algos() })
+
+    // Propose the first new manager
+    await client.send.updateManager({ args: { newManager: firstProposedManager.toString() } })
+    // get pending manager from global state
+    let pendingManager = await client.state.global.pendingManager()
+    // should match the second proposed new manager
+    expect(pendingManager).toEqual(firstProposedManager.toString())
+    // Re-propose a different new manager
+    await client.send.updateManager({ args: { newManager: secondProposedManager.toString() } })
+    // get pending manager from global state
+    pendingManager = await client.state.global.pendingManager()
+    // should match the second proposed new manager
+    expect(pendingManager).toEqual(secondProposedManager.toString())
+  })
+
   it('should reject unauthorized manager proposal', async () => {
     // Test rejecting proposal from non-manager
     const { testAccount, generateAccount } = localnet.context
@@ -145,5 +167,19 @@ describe('Managable2Step contract', () => {
         suppressLog: true,
       }),
     ).rejects.toThrowError(ERROR_ONLY_PENDING_MANAGER)
+  })
+
+  it('should fail to accept new manager if not proposed', async () => {
+    // Test rejecting acceptance when no manager is proposed
+    const { testAccount } = localnet.context
+    const { client } = await deploy(testAccount)
+
+    // should throw when calling acceptManager from anotherAccount when no manager is proposed
+    await expect(
+      client.send.acceptManager({
+        args: [],
+        suppressLog: true,
+      }),
+    ).rejects.toThrow()
   })
 })
