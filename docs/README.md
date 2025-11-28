@@ -8,6 +8,10 @@ These contracts are designed to be extended by other contracts only, they should
 
 Simple management of deployed applications.
 
+### [Managable2Step](lib/auth/Managable2Step.md)
+
+An extended version of `Managable` that implements management transfer in a 2-step process.
+
 ### [Pausable](lib/utils/Pausable.md)
 
 Easily managed pausable functionality.
