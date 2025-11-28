@@ -3,7 +3,7 @@ import * as crypto from 'crypto'
 
 /**
  * Utility to decode event from raw log
- * @param abiString ABI string of the event
+ * @param eventSignature Event signature string
  * @param rawLog Raw log bytes
  * @param keys Keys of the event fields
  * @returns Decoded event T object
